@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+<!--Definir o uso de "UTF-8" codificação binária que irá permitir o uso de diversos caracteres--> 
+        <meta charset="UTF-8">
+
+<!--Define o tamanho da tela na qual o jogo será demonstrado-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--Título da aba no navegador-->
+        <title>Breno Silva: SomethingsFishy</title>
+        <link rel="stylesheet" href="style.css">
+
+
+<!--Centraliza a tela horizontalmente e verticalmente-->
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+        </style>
+
+<!--"Puxa"/define o script da biblioteca phaser para uso-->
+        <script src="phaser.js"></script>
+    </head>
+
+
+    <body>
+        <!--texto instrução-->
+        <div class="textoTela">
+            <h4>Clique na tela!</h4>
+        </div>
+        <!--Carrega o jogo-->
+        <script src="peixe.js"></script>
+        <!--Efeito de brilho-->
+        <script>
+            let container = document.querySelector('body');
+            container.addEventListener('click', function(event){
+                let spark = document.createElement('div');
+                spark.classList.add('spark');
+                spark.style.top = (event.clientY - container.offsetTop) + 'px'; 
+                spark.style.left = (event.clientX - container.offsetLeft) + 'px'; 
+                spark.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg)';
+                container.appendChild(spark);
+
+                for (var i = 0; i <= 7; i++){
+                    let span = document.createElement('span');
+                    span.style.transform = 'rotate('+(i * 45)+'deg)';
+                    spark.appendChild(span);
+                }
+
+
+                setTimeout(function(){
+                    spark.remove()                    
+                },1500)
+                
+
+            })
+        </script>
+
+
+
+    </body>
+
+</html>
+
+<script>
+var resposta= "Eu fiz um semestre de AP CSP na escola. Mexemos com o site code.org onde eu apenas usei python, então javascript foi a primeira vez. Foi até que tranquilo, por sorte, nada deu errado durante a instalação. Tem uma pequena parte do tutorial que eu não entendi. Em algum momento, eu preciso adicionar o peixe como uma variavel centralizada na tela, so que depois que o peixe foi transformado em uma variavel, ficam dois peixes na tela. Um completamente parado e o outro segue o mouse como realmete deve seguir. Isso foi um pouco confuso mas não impactou no resultado final.";
+
+console.log(resposta);
+</script>
+
